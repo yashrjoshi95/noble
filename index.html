@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noble Projex — Reliable Compliance Testing & Seamless Building Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root {
+  /* From logo: deep steel blue, mid blue, bright blue, grey silver */
+  --blue-deep:    #1a3a6b;
+  --blue-main:    #1f5099;
+  --blue-bright:  #2d6cc4;
+  --blue-light:   #4a8fd4;
+  --blue-pale:    #d6e5f5;
+  --silver:       #6b7d96;
+  --silver-light: #8fa0b5;
+  --silver-pale:  #c8d4e0;
+  --bg:           #f4f7fb;
+  --bg2:          #eaf0f8;
+  --bg3:          #ffffff;
+  --card-bg:      #ffffff;
+  --card-border:  #dde6f0;
+  --text-dark:    #0d1e35;
+  --text-mid:     #2d4065;
+  --text-muted:   #6b7d96;
+  --accent:       #2d6cc4;
+  --shadow-sm:    0 2px 12px rgba(31,80,153,0.08);
+  --shadow-md:    0 8px 32px rgba(31,80,153,0.13);
+  --shadow-lg:    0 20px 60px rgba(31,80,153,0.18);
+}
+
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text-dark);font-family:'Inter',sans-serif;font-weight:400;overflow-x:hidden;}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:12px 52px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(244,247,251,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+  transition:all 0.4s ease;
+}
+nav.scrolled{
+  background:rgba(255,255,255,0.96);
+  border-bottom-color:var(--card-border);
+  box-shadow:var(--shadow-sm);
+  padding:8px 52px;
+}
+.nav-logo{display:flex;align-items:center;gap:0;}
+.nav-logo img{height:52px;width:auto;object-fit:contain;transition:height 0.3s;}
+nav.scrolled .nav-logo img{height:90px;}
+
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{
+  color:var(--text-mid);
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:0.5px;
+  font-weight:500;
+  transition:color 0.3s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;
+  width:0;height:2px;
+  background:var(--blue-bright);
+  border-radius:2px;
+  transition:width 0.3s ease;
+}
+.nav-links a:hover{color:var(--blue-bright);}
+.nav-links a:hover::after{width:100%;}
+
+.nav-call{
+  background:linear-gradient(135deg,var(--blue-main),var(--blue-bright)) !important;
+  color:#fff !important;
+  padding:9px 22px !important;
+  border-radius:50px !important;
+  font-weight:600 !important;
+  display:inline-flex !important;
+  align-items:center;gap:7px;
+  box-shadow:0 4px 18px rgba(31,80,153,0.28) !important;
+  transition:transform 0.2s, box-shadow 0.3s !important;
+  white-space:nowrap;
+}
+.nav-call::after{display:none !important;}
+.nav-call:hover{transform:translateY(-2px) !important;box-shadow:0 8px 28px rgba(31,80,153,0.38) !important;color:#fff !important;}
+
+/* ─── HERO ─── */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;
+  padding:100px 52px 80px;
+  overflow:hidden;
+}
+.hero-bg-grad{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 80% 30%, rgba(74,143,212,0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 50% at 10% 80%, rgba(31,80,153,0.07) 0%, transparent 60%),
+    linear-gradient(160deg, #f4f7fb 0%, #eaf0f8 60%, #dde9f5 100%);
+}
+
+/* Decorative geometric shapes */
+.hero-shape-1{
+  position:absolute;right:-80px;top:10%;
+  width:520px;height:520px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(74,143,212,0.12) 0%, transparent 70%);
+  animation:floatA 8s ease-in-out infinite;
+}
+.hero-shape-2{
+  position:absolute;right:12%;top:15%;
+  width:320px;height:320px;
+  border:1.5px solid rgba(45,108,196,0.12);
+  border-radius:50%;
+  animation:floatB 10s ease-in-out infinite;
+}
+.hero-shape-3{
+  position:absolute;right:18%;top:22%;
+  width:180px;height:180px;
+  border:1px solid rgba(45,108,196,0.18);
+  border-radius:50%;
+  animation:floatB 7s ease-in-out infinite reverse;
+}
+@keyframes floatA{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-18px) scale(1.03);}}
+@keyframes floatB{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+
+/* Network dots graphic - top right */
+.hero-network{
+  position:absolute;
+  right:5%;top:50%;
+  transform:translateY(-50%);
+  width:380px;height:380px;
+  opacity:0.22;
+  animation:floatA 9s ease-in-out infinite;
+}
+
+.hero-content{position:relative;z-index:2;max-width:680px;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;
+  border:1px solid var(--card-border);
+  box-shadow:var(--shadow-sm);
+  padding:7px 18px;
+  border-radius:50px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--blue-main);
+  margin-bottom:32px;
+  opacity:0;
+  animation:fadeUp 0.7s 0.1s forwards;
+}
+.badge-dot{
+  width:7px;height:7px;
+  background:var(--blue-bright);
+  border-radius:50%;
+  animation:badgePulse 2s ease-in-out infinite;
+}
+@keyframes badgePulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(45,108,196,0.5);}
+  50%{box-shadow:0 0 0 5px rgba(45,108,196,0);}
+}
+
+.hero-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(64px,10vw,118px);
+  font-weight:900;
+  line-height:0.88;
+  color:var(--blue-deep);
+  margin-bottom:24px;
+  opacity:0;
+  animation:fadeUp 0.8s 0.25s forwards;
+}
+.hero-title .t-blue{color:var(--blue-bright);}
+.hero-title .t-outline{
+  -webkit-text-stroke:2px var(--blue-pale);
+  color:transparent;
+  display:block;
+}
+
+.hero-slogan{
+  font-size:15px;
+  font-weight:600;
+  color:var(--blue-main);
+  letter-spacing:0.3px;
+  margin-bottom:14px;
+  opacity:0;
+  animation:fadeUp 0.8s 0.4s forwards;
+}
+
+.hero-sub{
+  font-size:16px;
+  line-height:1.8;
+  color:var(--text-muted);
+  max-width:500px;
+  margin-bottom:44px;
+  opacity:0;
+  animation:fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-actions{
+  display:flex;gap:14px;flex-wrap:wrap;
+  opacity:0;
+  animation:fadeUp 0.8s 0.65s forwards;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue-main),var(--blue-bright));
+  color:#fff;
+  padding:15px 36px;
+  border:none;border-radius:50px;
+  font-size:13px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:9px;
+  box-shadow:0 6px 28px rgba(31,80,153,0.32);
+  transition:all 0.3s ease;
+  position:relative;overflow:hidden;
+}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.btn-primary:hover::after{opacity:1;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 42px rgba(31,80,153,0.42);}
+
+.btn-outline{
+  background:#fff;
+  color:var(--blue-main);
+  padding:15px 36px;
+  border:1.5px solid var(--blue-pale);
+  border-radius:50px;
+  font-size:13px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:9px;
+  box-shadow:var(--shadow-sm);
+  transition:all 0.3s ease;
+}
+.btn-outline:hover{
+  border-color:var(--blue-bright);
+  color:var(--blue-bright);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-md);
+}
+
+/* Hero trust pills */
+.hero-trust{
+  display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;
+  opacity:0;animation:fadeUp 0.8s 0.8s forwards;
+}
+.trust-pill{
+  display:flex;align-items:center;gap:6px;
+  background:#fff;
+  border:1px solid var(--card-border);
+  border-radius:50px;
+  padding:6px 14px;
+  font-size:11px;font-weight:600;
+  color:var(--text-mid);
+  box-shadow:var(--shadow-sm);
+}
+.trust-pill svg{color:var(--blue-bright);}
+
+/* Floating stat cards */
+.hero-floats{
+  position:absolute;right:52px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:16px;
+  opacity:0;animation:fadeLeft 0.9s 0.9s forwards;
+  z-index:3;
+}
+.float-card{
+  background:#fff;
+  border:1px solid var(--card-border);
+  border-radius:16px;
+  padding:20px 28px;
+  box-shadow:var(--shadow-md);
+  min-width:180px;
+  position:relative;
+  overflow:hidden;
+}
+.float-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:4px;
+  background:linear-gradient(180deg,var(--blue-main),var(--blue-bright));
+  border-radius:4px 0 0 4px;
+}
+.float-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:42px;font-weight:900;
+  color:var(--blue-deep);line-height:1;
+  margin-bottom:4px;
+}
+.float-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);
+}
+
+.scroll-hint{
+  position:absolute;bottom:36px;left:52px;
+  display:flex;align-items:center;gap:12px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--silver-light);
+  opacity:0;animation:fadeUp 0.8s 1.1s forwards;
+}
+.scroll-line{
+  width:36px;height:1px;
+  background:linear-gradient(90deg,var(--blue-bright),transparent);
+  animation:grow 2.5s ease-in-out infinite;transform-origin:left;
+}
+
+@keyframes grow{0%,100%{transform:scaleX(1);}50%{transform:scaleX(1.6);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeLeft{from{opacity:0;transform:translateX(26px);}to{opacity:1;transform:translateX(0);}}
+
+/* ─── MARQUEE ─── */
+.marquee-bar{
+  border-top:1px solid var(--card-border);
+  border-bottom:1px solid var(--card-border);
+  padding:14px 0;overflow:hidden;
+  background:var(--bg3);
+  position:relative;z-index:2;
+}
+.marquee-track{
+  display:flex;gap:48px;
+  animation:marquee 30s linear infinite;
+  white-space:nowrap;
+}
+.marquee-item{
+  display:flex;align-items:center;gap:12px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--silver);flex-shrink:0;
+}
+.marquee-item .mdot{color:var(--blue-bright);font-size:9px;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ─── SECTIONS ─── */
+section{padding:100px 52px;position:relative;}
+
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--blue-bright);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';width:18px;height:2px;background:var(--blue-bright);border-radius:2px;}
+.section-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(38px,5vw,70px);
+  font-weight:900;line-height:0.92;
+  color:var(--blue-deep);
+  margin-bottom:18px;
+}
+.section-title .t-blue{color:var(--blue-bright);}
+
+/* ─── SERVICES ─── */
+#services{background:var(--bg);}
+.services-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:52px;
+  align-items:end;margin-bottom:64px;
+}
+.services-desc{color:var(--text-muted);font-size:15px;line-height:1.85;align-self:end;}
+
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.service-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:20px;
+  padding:40px 32px;
+  position:relative;overflow:hidden;
+  cursor:pointer;
+  transition:all 0.35s ease;
+  box-shadow:var(--shadow-sm);
+}
+.service-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(145deg,rgba(74,143,212,0.06) 0%,transparent 65%);
+  opacity:0;transition:opacity 0.4s;
+}
+.service-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue-main),var(--blue-bright));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s ease;
+  border-radius:0 0 20px 20px;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:rgba(74,143,212,0.3);
+}
+.service-card:hover::before{opacity:1;}
+.service-card:hover::after{transform:scaleX(1);}
+
+.service-icon-wrap{
+  width:56px;height:56px;
+  background:linear-gradient(135deg,var(--blue-pale),rgba(74,143,212,0.15));
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:22px;font-size:24px;
+  transition:all 0.35s;
+  box-shadow:0 4px 14px rgba(31,80,153,0.12);
+}
+.service-card:hover .service-icon-wrap{
+  background:linear-gradient(135deg,var(--blue-main),var(--blue-bright));
+  box-shadow:0 8px 24px rgba(31,80,153,0.28);
+}
+.service-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:var(--blue-light);
+  letter-spacing:2px;margin-bottom:12px;opacity:0.8;
+}
+.service-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:24px;font-weight:800;
+  color:var(--blue-deep);margin-bottom:12px;
+  transition:color 0.3s;line-height:1.1;
+}
+.service-desc{
+  color:var(--text-muted);font-size:13px;
+  line-height:1.75;margin-bottom:24px;
+}
+.service-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--blue-bright);
+  font-size:12px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;
+  text-decoration:none;
+  transition:gap 0.3s;
+}
+.service-card:hover .service-link{gap:13px;}
+.s-arrow{
+  width:16px;height:1.5px;
+  background:var(--blue-bright);
+  position:relative;
+  transition:width 0.3s;
+}
+.s-arrow::after{
+  content:'';position:absolute;
+  right:0;top:-3px;
+  border:4px solid transparent;
+  border-left-color:var(--blue-bright);
+}
+
+/* ─── MODAL ─── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(13,30,53,0.55);
+  backdrop-filter:blur(16px);
+  z-index:500;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.4s;padding:24px;
+}
+.modal-overlay.active{opacity:1;pointer-events:all;}
+.modal{
+  background:#fff;
+  border-radius:24px;
+  max-width:600px;width:100%;
+  padding:52px;
+  position:relative;
+  transform:translateY(28px) scale(0.97);
+  transition:transform 0.4s cubic-bezier(0.23,1,0.32,1);
+  box-shadow:0 32px 80px rgba(13,30,53,0.22);
+  border-top:4px solid var(--blue-main);
+}
+.modal-overlay.active .modal{transform:translateY(0) scale(1);}
+.modal-close{
+  position:absolute;top:20px;right:20px;
+  width:36px;height:36px;
+  border:1.5px solid var(--card-border);
+  background:var(--bg2);color:var(--silver);
+  font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.3s;border-radius:50%;
+}
+.modal-close:hover{
+  border-color:var(--blue-bright);
+  color:var(--blue-bright);
+  background:var(--blue-pale);
+}
+.modal-icon{font-size:40px;margin-bottom:18px;}
+.modal-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:38px;font-weight:900;
+  color:var(--blue-deep);margin-bottom:6px;
+}
+.modal-standard{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:var(--blue-bright);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:22px;
+  display:flex;align-items:center;gap:8px;
+}
+.modal-standard::before{content:'';width:14px;height:2px;background:var(--blue-bright);border-radius:2px;}
+.modal-body{
+  color:var(--text-muted);font-size:14px;
+  line-height:1.85;margin-bottom:28px;
+}
+.modal-features{display:flex;flex-direction:column;gap:10px;}
+.modal-feature{
+  display:flex;align-items:center;gap:12px;
+  font-size:13px;color:var(--text-dark);font-weight:500;
+}
+.modal-feature::before{
+  content:'✓';
+  width:22px;height:22px;
+  background:linear-gradient(135deg,var(--blue-main),var(--blue-bright));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;flex-shrink:0;color:white;
+}
+
+/* ─── WHY US ─── */
+#why{background:var(--bg2);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+
+.why-visual-stack{position:relative;height:460px;}
+.wcard-main{
+  position:absolute;top:0;left:0;right:36px;
+  background:#fff;border:1px solid var(--card-border);
+  border-radius:20px;padding:36px;height:280px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  box-shadow:var(--shadow-md);
+  overflow:hidden;
+}
+.wcard-main::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(145deg,rgba(74,143,212,0.06) 0%,transparent 60%);
+}
+.wcard-main-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:68px;font-weight:900;
+  color:var(--blue-bright);line-height:1;
+  margin-bottom:4px;position:relative;z-index:1;
+}
+.wcard-main-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--text-muted);
+  position:relative;z-index:1;
+}
+.wcard-main-sub{
+  font-size:13px;color:var(--text-muted);
+  margin-top:8px;line-height:1.6;
+  position:relative;z-index:1;
+}
+.wcard-corner{
+  position:absolute;bottom:0;right:0;
+  background:linear-gradient(135deg,var(--blue-main),var(--blue-bright));
+  padding:28px;width:180px;height:180px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-radius:20px;
+  box-shadow:var(--shadow-lg);
+}
+.wcard-corner-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:50px;font-weight:900;color:#fff;line-height:1;
+}
+.wcard-corner-text{font-size:12px;color:rgba(255,255,255,0.85);margin-top:4px;}
+
+.why-points{display:flex;flex-direction:column;gap:18px;margin-top:32px;}
+.why-point{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:22px;
+  background:#fff;
+  border:1px solid var(--card-border);
+  border-radius:16px;
+  transition:all 0.3s;
+  box-shadow:var(--shadow-sm);
+}
+.why-point:hover{
+  box-shadow:var(--shadow-md);
+  border-color:rgba(74,143,212,0.3);
+  transform:translateX(4px);
+}
+.why-point-icon{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--blue-pale),rgba(74,143,212,0.18));
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.why-point-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:20px;font-weight:800;
+  color:var(--blue-deep);margin-bottom:4px;
+}
+.why-point-desc{color:var(--text-muted);font-size:13px;line-height:1.65;}
+
+/* ─── PROCESS ─── */
+#process{background:var(--bg3);}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:24px;margin-top:64px;
+}
+.process-step{
+  background:var(--bg2);
+  border:1px solid var(--card-border);
+  border-radius:20px;padding:36px 28px;
+  text-align:center;
+  position:relative;
+  transition:all 0.35s;
+  box-shadow:var(--shadow-sm);
+}
+.process-step:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:rgba(74,143,212,0.3);
+  background:#fff;
+}
+.step-icon-wrap{
+  width:64px;height:64px;
+  background:linear-gradient(135deg,var(--blue-main),var(--blue-bright));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:26px;font-weight:900;color:#fff;
+  box-shadow:0 6px 24px rgba(31,80,153,0.3);
+  transition:all 0.35s;
+}
+.process-step:hover .step-icon-wrap{
+  transform:scale(1.1);
+  box-shadow:0 10px 32px rgba(31,80,153,0.4);
+}
+.step-connector{
+  position:absolute;top:68px;right:-12px;
+  width:24px;height:2px;
+  background:linear-gradient(90deg,var(--blue-pale),var(--blue-bright));
+  z-index:1;
+}
+.process-step:last-child .step-connector{display:none;}
+.step-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:21px;font-weight:800;
+  color:var(--blue-deep);margin-bottom:10px;
+}
+.step-desc{color:var(--text-muted);font-size:13px;line-height:1.65;}
+
+/* ─── STANDARDS STRIP ─── */
+.standards-strip{
+  background:linear-gradient(135deg,var(--blue-deep),var(--blue-main));
+  padding:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:32px;flex-wrap:wrap;
+}
+.strip-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:32px;font-weight:900;color:#fff;
+  max-width:380px;line-height:1.1;
+}
+.strip-pills{display:flex;gap:12px;flex-wrap:wrap;}
+.strip-pill{
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#fff;
+  padding:8px 18px;border-radius:50px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:1.5px;
+  backdrop-filter:blur(8px);
+}
+.strip-cta{
+  background:#fff;
+  color:var(--blue-main);
+  padding:14px 32px;border-radius:50px;
+  font-size:13px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 6px 28px rgba(0,0,0,0.2);
+  transition:all 0.3s;white-space:nowrap;
+}
+.strip-cta:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
+
+/* ─── CONTACT ─── */
+#contact{background:var(--bg);}
+.contact-wrapper{
+  display:grid;grid-template-columns:1fr 1.1fr;
+  gap:56px;margin-top:52px;align-items:start;
+}
+.contact-info{display:flex;flex-direction:column;gap:14px;}
+.contact-item{
+  display:flex;gap:16px;align-items:center;
+  padding:20px 24px;
+  background:#fff;
+  border:1px solid var(--card-border);
+  border-radius:16px;
+  text-decoration:none;
+  transition:all 0.3s;
+  box-shadow:var(--shadow-sm);
+}
+.contact-item:hover{
+  box-shadow:var(--shadow-md);
+  border-color:rgba(74,143,212,0.35);
+  transform:translateX(4px);
+}
+.contact-icon-wrap{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--blue-pale),rgba(74,143,212,0.18));
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.contact-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--blue-bright);
+  margin-bottom:3px;
+}
+.contact-val{font-size:14px;font-weight:600;color:var(--text-dark);}
+
+/* Big call panel */
+.call-panel{
+  background:linear-gradient(145deg,var(--blue-deep) 0%,var(--blue-main) 60%,var(--blue-bright) 100%);
+  border-radius:24px;
+  padding:52px 44px;
+  display:flex;flex-direction:column;gap:24px;
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.call-panel::before{
+  content:'';position:absolute;
+  top:-60px;right:-60px;
+  width:240px;height:240px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.06);
+}
+.call-panel::after{
+  content:'';position:absolute;
+  bottom:-40px;left:-40px;
+  width:180px;height:180px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.call-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.65);
+  position:relative;z-index:1;
+}
+.call-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:52px;font-weight:900;
+  color:#fff;line-height:0.92;
+  position:relative;z-index:1;
+}
+.call-sub{
+  font-size:14px;color:rgba(255,255,255,0.78);
+  line-height:1.75;position:relative;z-index:1;
+}
+.call-number{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:46px;font-weight:900;
+  color:#fff;letter-spacing:2px;
+  text-decoration:none;
+  position:relative;z-index:1;
+  transition:opacity 0.3s;
+  display:inline-block;
+}
+.call-number:hover{opacity:0.8;}
+.btn-call-big{
+  background:#fff;
+  color:var(--blue-main);
+  padding:17px 40px;
+  border:none;border-radius:50px;
+  font-size:14px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:11px;
+  box-shadow:0 6px 30px rgba(0,0,0,0.22);
+  transition:all 0.3s;
+  position:relative;z-index:1;
+  align-self:flex-start;
+}
+.btn-call-big:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 44px rgba(0,0,0,0.3);
+  color:var(--blue-bright);
+}
+.btn-call-big svg{animation:phoneRing 3.5s ease-in-out infinite;}
+@keyframes phoneRing{
+  0%,88%,100%{transform:rotate(0);}
+  90%{transform:rotate(-16deg);}
+  92%{transform:rotate(16deg);}
+  94%{transform:rotate(-10deg);}
+  96%{transform:rotate(8deg);}
+}
+.avail-tag{
+  display:flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:1.5px;
+  color:rgba(255,255,255,0.55);text-transform:uppercase;
+  position:relative;z-index:1;
+}
+.avail-dot{
+  width:7px;height:7px;
+  background:#4ade80;border-radius:50%;
+  animation:badgePulse 2s infinite;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--blue-deep);
+  padding:60px 52px 36px;
+}
+.footer-top{
+  display:flex;justify-content:space-between;
+  align-items:flex-start;margin-bottom:48px;gap:40px;
+}
+.footer-logo img{height:56px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9;}
+.footer-tagline{
+  color:rgba(255,255,255,0.45);
+  font-size:13px;max-width:240px;
+  line-height:1.65;margin-top:14px;
+}
+.footer-links-col h4{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--blue-light);margin-bottom:18px;
+}
+.footer-links-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links-col ul a{
+  color:rgba(255,255,255,0.5);
+  text-decoration:none;font-size:13px;
+  transition:color 0.3s;
+}
+.footer-links-col ul a:hover{color:#fff;}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:28px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-size:11px;color:rgba(255,255,255,0.3);
+  font-family:'JetBrains Mono',monospace;
+  flex-wrap:wrap;gap:10px;
+}
+.footer-cert{color:var(--blue-light);}
+
+/* ─── HAMBURGER ─── */
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  cursor:pointer;padding:4px;background:none;border:none;
+}
+.hamburger span{display:block;width:26px;height:2px;background:var(--blue-deep);transition:all 0.3s;border-radius:2px;}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.08s;}
+.reveal-delay-2{transition-delay:0.16s;}
+.reveal-delay-3{transition-delay:0.24s;}
+.reveal-delay-4{transition-delay:0.32s;}
+.reveal-delay-5{transition-delay:0.40s;}
+.reveal-delay-6{transition-delay:0.48s;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1100px){
+  .hero-floats{display:none;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;gap:20px;}
+  .why-visual-stack{display:none;}
+  .why-grid{grid-template-columns:1fr;}
+  .contact-wrapper{grid-template-columns:1fr;}
+  .services-header{grid-template-columns:1fr;gap:16px;}
+}
+@media(max-width:768px){
+  nav{padding:12px 20px;}
+  nav.scrolled{padding:8px 20px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  section{padding:72px 22px;}
+  #hero{padding:90px 22px 72px;}
+  .hero-title{font-size:clamp(54px,14vw,90px);}
+  .services-grid{grid-template-columns:1fr;}
+  .standards-strip{flex-direction:column;padding:40px 22px;}
+  footer{padding:48px 22px 28px;}
+  .footer-top{flex-direction:column;gap:32px;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .process-steps{grid-template-columns:1fr;}
+  .scroll-hint{left:22px;}
+  .step-connector{display:none;}
+  .call-panel{padding:36px 28px;}
+  .call-title{font-size:40px;}
+  .call-number{font-size:34px;}
+}
+
+/* Standard cards equal size fix */
+.standard-card-main,
+.standard-card-secondary{
+    min-height:280px !important;
+    height:280px !important;
+    width:100% !important;
+    padding:36px !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-end !important;
+}
+
+@media (max-width:768px){
+    .standard-card-main,
+    .standard-card-secondary{
+        min-height:220px !important;
+        height:auto !important;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="Noble_logo.png" alt="Noble Projex Logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="tel:0468488634" class="nav-call">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call Us
+      </a>
+    </li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grad"></div>
+  <div class="hero-shape-1"></div>
+  <div class="hero-shape-2"></div>
+  <div class="hero-shape-3"></div>
+
+  <!-- Network SVG decoration matching logo style -->
+  <svg class="hero-network" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="190" cy="120" r="5" fill="#2d6cc4" opacity="0.7"/>
+    <circle cx="300" cy="180" r="5" fill="#2d6cc4" opacity="0.7"/>
+    <circle cx="120" cy="240" r="5" fill="#1f5099" opacity="0.6"/>
+    <circle cx="260" cy="290" r="4" fill="#2d6cc4" opacity="0.6"/>
+    <circle cx="80" cy="150" r="4" fill="#1f5099" opacity="0.5"/>
+    <circle cx="340" cy="90" r="4" fill="#1f5099" opacity="0.5"/>
+    <circle cx="180" cy="330" r="4" fill="#1f5099" opacity="0.5"/>
+    <circle cx="350" cy="270" r="3" fill="#1f5099" opacity="0.4"/>
+    <circle cx="60" cy="290" r="3" fill="#2d6cc4" opacity="0.4"/>
+    <line x1="190" y1="120" x2="300" y2="180" stroke="#2d6cc4" stroke-width="1" opacity="0.35"/>
+    <line x1="190" y1="120" x2="80" y2="150" stroke="#1f5099" stroke-width="1" opacity="0.3"/>
+    <line x1="190" y1="120" x2="340" y2="90" stroke="#1f5099" stroke-width="1" opacity="0.3"/>
+    <line x1="300" y1="180" x2="260" y2="290" stroke="#2d6cc4" stroke-width="1" opacity="0.35"/>
+    <line x1="300" y1="180" x2="350" y2="270" stroke="#1f5099" stroke-width="1" opacity="0.3"/>
+    <line x1="120" y1="240" x2="80" y2="150" stroke="#1f5099" stroke-width="1" opacity="0.25"/>
+    <line x1="120" y1="240" x2="260" y2="290" stroke="#2d6cc4" stroke-width="1" opacity="0.3"/>
+    <line x1="260" y1="290" x2="180" y2="330" stroke="#1f5099" stroke-width="1" opacity="0.25"/>
+    <line x1="350" y1="270" x2="260" y2="290" stroke="#1f5099" stroke-width="1" opacity="0.25"/>
+    <line x1="60" y1="290" x2="120" y2="240" stroke="#2d6cc4" stroke-width="1" opacity="0.25"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      AS/NZS 3760:2022 · AS1851:2012 Certified
+    </div>
+    <h1 class="hero-title">
+      SAFE<span class="t-blue"></span><br>
+      <span class="t-blue">WORK</span><br>
+      PLACE<span class="t-blue"></span>
+    </h1>
+    <div class="hero-slogan">"Reliable compliance testing &amp; seamless building solutions"</div>
+    <p class="hero-sub">Noble Projex delivers professional compliance services across Australia, protecting your people, your equipment, and your business.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Explore Services
+      </a>
+      <a href="tel:0468488634" class="btn-outline">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        0468 488 634
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        Certified &amp; Compliant
+      </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        Full Digital Reports
+      </div>
+      <div class="trust-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        Fast On-Site Service
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating stat cards -->
+  <div class="hero-floats">
+    
+    <div class="float-card">
+      <div class="float-num">100%</div>
+      <div class="float-label">Compliance Rate</div>
+    </div>
+    <div class="float-card">
+      <div class="float-num">AS/NZS</div>
+      <div class="float-label">Certified Standard</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="mdot">◆</span> Portable Appliance Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire Extinguisher Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Emergency &amp; Exit Light Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire Blanket Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire &amp; Smoke Door Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire Hose Reel Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> AS/NZS 3760:2022 Certified</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Portable Appliance Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire Extinguisher Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Emergency &amp; Exit Light Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire Blanket Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire &amp; Smoke Door Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> Fire Hose Reel Testing</div>
+    <div class="marquee-item"><span class="mdot">◆</span> AS/NZS 3760:2022 Certified</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-label reveal">Our Services</div>
+      <h2 class="section-title reveal reveal-delay-1">WHAT WE<br><span class="t-blue">PROTECT</span></h2>
+    </div>
+    <p class="services-desc reveal reveal-delay-2">Every service is performed by qualified professionals, fully compliant with Australian Standards, and comprehensively documented for your records and peace of mind.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1" onclick="openModal('pat')">
+      <div class="service-num"></div>
+      <div class="service-icon-wrap">⚡</div>
+      <div class="service-name">Portable Electrical Appliance Testing</div>
+      <p class="service-desc">Complete test &amp; tag for all portable electrical equipment ensuring safety and regulatory compliance.</p>
+      <div class="service-link">Learn more <div class="s-arrow"></div></div>
+    </div>
+    <div class="service-card reveal reveal-delay-2" onclick="openModal('fire-ext')">
+      <div class="service-num"></div>
+      <div class="service-icon-wrap">🧯</div>
+      <div class="service-name">Fire Extinguisher Testing</div>
+      <p class="service-desc">Visual inspection and integrity testing of all fire extinguishers with comprehensive compliance reporting.</p>
+      <div class="service-link">Learn more <div class="s-arrow"></div></div>
+    </div>
+    <div class="service-card reveal reveal-delay-3" onclick="openModal('blanket')">
+      <div class="service-num"></div>
+      <div class="service-icon-wrap">🛡️</div>
+      <div class="service-name">Fire Blanket Testing</div>
+      <p class="service-desc">Professional inspection ensuring fire blankets are undamaged, accessible and ready to perform when it matters.</p>
+      <div class="service-link">Learn more <div class="s-arrow"></div></div>
+    </div>
+    <div class="service-card reveal reveal-delay-4" onclick="openModal('exit')">
+      <div class="service-num"></div>
+      <div class="service-icon-wrap">🚨</div>
+      <div class="service-name">Emergency &amp; Exit Light Testing</div>
+      <p class="service-desc">Routine testing and certification of emergency and exit lighting systems to Australian safety requirements.</p>
+      <div class="service-link">Learn more <div class="s-arrow"></div></div>
+    </div>
+    <div class="service-card reveal reveal-delay-5" onclick="openModal('door')">
+      <div class="service-num"></div>
+      <div class="service-icon-wrap">🚪</div>
+      <div class="service-name">Fire &amp; Smoke Door Testing</div>
+      <p class="service-desc">Expert assessment of fire and smoke doors to ensure proper installation, function, and compliance.</p>
+      <div class="service-link">Learn more <div class="s-arrow"></div></div>
+    </div>
+    <div class="service-card reveal reveal-delay-6" onclick="openModal('hose')">
+      <div class="service-num"></div>
+      <div class="service-icon-wrap">💧</div>
+      <div class="service-name">Fire Hose Reel Testing</div>
+      <p class="service-desc">Thorough inspection and pressure testing of fire hose reels ensuring operational readiness in any emergency.</p>
+      <div class="service-link">Learn more <div class="s-arrow"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div>
+      <div class="section-label reveal">Why Choose Us</div>
+      <h2 class="section-title reveal reveal-delay-1">BUILT ON<br><span class="t-blue">TRUST</span></h2>
+      <div class="why-points">
+        <div class="why-point reveal reveal-delay-2">
+          <div class="why-point-icon">📋</div>
+          <div>
+            <div class="why-point-title">Fully Certified &amp; Compliant</div>
+            <p class="why-point-desc">All work carried out in accordance with AS/NZS 3760:2022 and AS1851:2012 by qualified professionals.</p>
+          </div>
+        </div>
+        <div class="why-point reveal reveal-delay-3">
+          <div class="why-point-icon">📊</div>
+          <div>
+            <div class="why-point-title">Comprehensive Reporting</div>
+            <p class="why-point-desc">Every test is documented with a detailed compliance report perfect for audits and workplace safety reviews.</p>
+          </div>
+        </div>
+        <div class="why-point reveal reveal-delay-4">
+          <div class="why-point-icon">🤝</div>
+          <div>
+            <div class="why-point-title">Dedicated &amp; Personal Service</div>
+            <p class="why-point-desc">Work directly with Director Yash Joshi and a team that genuinely cares about your workplace safety.</p>
+          </div>
+        </div>
+        <div class="why-point reveal reveal-delay-5">
+          <div class="why-point-icon">⚡</div>
+          <div>
+            <div class="why-point-title">Fast &amp; Efficient On-Site Testing</div>
+            <p class="why-point-desc">Minimal disruption to your business we work efficiently so you can stay productive throughout the day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual-stack">
+      <div class="wcard-main">
+        <div class="wcard-main-num">AS/NZS</div>
+        <div class="wcard-main-label">3760:2022 </div>
+        <div class="wcard-main-sub">Portable electrical applieance test and tag completed to the Australian Standard.</div>
+      </div>
+      <div>
+    <div class="why-visual-stack">
+      <div class="wcard-main">
+        <div class="wcard-main-num">AS/NZS</div>
+        <div class="wcard-main-label">1851:2012 </div>
+        <div class="wcard-main-sub">Fire safety inscption to the Australian Standard.</div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-label reveal">How It Works</div>
+  <h2 class="section-title reveal reveal-delay-1">OUR <span class="t-blue">PROCESS</span></h2>
+  <div class="process-steps">
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-icon-wrap">01</div>
+      <div class="step-connector"></div>
+      <div class="step-title">Contact Us</div>
+      <p class="step-desc">Call or email to discuss your workplace safety needs. We'll quickly assess what's required for your site.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-icon-wrap">02</div>
+      <div class="step-connector"></div>
+      <div class="step-title">On-Site Testing</div>
+      <p class="step-desc">Our qualified technicians attend your site and carry out all required testing efficiently and professionally.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-icon-wrap">03</div>
+      <div class="step-connector"></div>
+      <div class="step-title">Tag &amp; Record</div>
+      <p class="step-desc">All tested equipment is tagged with compliance labels and logged into a comprehensive digital register.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-4">
+      <div class="step-icon-wrap">04</div>
+      <div class="step-title">Compliance Report</div>
+      <p class="step-desc">Receive a full compliance report, everything you need for audits and insurance, delivered with peace of mind.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS STRIP -->
+<div class="standards-strip">
+  <div class="strip-title">Fully Certified to Australian Standards</div>
+  <div class="strip-pills">
+    <div class="strip-pill">AS/NZS 3760:2022</div>
+    <div class="strip-pill">AS1851:2012</div>
+    <div class="strip-pill">AS/NZS 2293</div>
+    <div class="strip-pill">AS1905 / BCA</div>
+    <div class="strip-pill">Safe Work Australia</div>
+  </div>
+  <a href="tel:0468488634" class="strip-cta">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    Get Compliant Today
+  </a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal">Contact Us</div>
+  <h2 class="section-title reveal reveal-delay-1">LET'S KEEP YOUR<br><span class="t-blue">TEAM SAFE</span></h2>
+  <div class="contact-wrapper">
+    <div class="contact-info reveal reveal-delay-2">
+      <div class="contact-item">
+        <div class="contact-icon-wrap">👤</div>
+        <div>
+          <div class="contact-label">Director</div>
+          <div class="contact-val">Yash Joshi</div>
+        </div>
+      </div>
+      <a href="tel:0468488634" class="contact-item">
+        <div class="contact-icon-wrap">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">0468 488 634</div>
+        </div>
+      </a>
+      <a href="mailto:yash@nobleprojex.com.au" class="contact-item">
+        <div class="contact-icon-wrap">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">yash@nobleprojex.com.au</div>
+        </div>
+      </a>
+      <a href="mailto:info@nobleprojex.com.au" class="contact-item">
+        <div class="contact-icon-wrap">💼</div>
+        <div>
+          <div class="contact-label">General Inquiries</div>
+          <div class="contact-val">info@nobleprojex.com.au</div>
+        </div>
+      </a>
+      
+    </div>
+
+    <div class="call-panel reveal reveal-delay-3">
+      <div class="call-eyebrow">Ready to book? We're a call away.</div>
+      <div class="call-title">TALK TO US<br>TODAY</div>
+      <div class="call-sub">Get no-obligation quote for any of workplace safety services. We'll assess your needs and book a time that works for you.</div>
+      <a href="tel:0468488634" class="call-number">0468 488 634</a>
+      <a href="tel:0468488634" class="btn-call-big">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call Us Now
+      </a>
+      <div class="avail-tag">
+        <div class="avail-dot"></div>
+        Available Mon – Sat, 7am – 6pm
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">
+        <img src="Noble_logo.png" alt="Noble Projex Logo">
+      </div>
+      <p class="footer-tagline">Reliable compliance testing and seamless building safety solutions for Australian workplaces.</p>
+    </div>
+    <div class="footer-links-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0468488634">0468 488 634</a></li>
+        <li><a href="mailto:yash@nobleprojex.com.au">yash@nobleprojex.com.au</a></li>
+        <li><a href="mailto:info@nobleprojex.com.au">info@nobleprojex.com.au</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Noble Projex. All rights reserved.</div>
+    <div class="footer-cert">• AS/NZS 3760:2022 • AS1851:2012</div>
+  </div>
+</footer>
+
+<!-- SERVICE MODAL -->
+<div class="modal-overlay" id="serviceModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-standard" id="modalStandard"></div>
+    <p class="modal-body" id="modalBody"></p>
+    <div class="modal-features" id="modalFeatures"></div>
+  </div>
+</div>
+
+<script>
+const serviceDetails = {
+  pat: {
+    icon: '⚡',
+    title: 'Portable Electrical Appliance Testing',
+    standard: 'AS/NZS 3760:2022',
+    body: 'We inspect, test and tag portable electrical appliances to help your workplace stay compliant, safe and audit-ready.',
+    features: ['Visual inspection of equipment', 'Electrical safety testing', 'Test and tag labels applied', 'Compliance documentation']
+  },
+  'fire-ext': {
+    icon: '🧯',
+    title: 'Fire Extinguisher Testing',
+    standard: 'AS1851:2012',
+    body: 'We check fire extinguishers for accessibility, condition, pressure, signage and compliance requirements.',
+    features: ['Visual condition inspection', 'Pressure and accessibility checks', 'Compliance tagging', 'Compliance documentation']
+  },
+  blanket: {
+    icon: '🛡️',
+    title: 'Fire Blanket Testing',
+    standard: 'AS1851:2012',
+    body: 'We inspect fire blankets to confirm they are correctly located, undamaged, clearly marked and ready for emergency use.',
+    features: ['Container and blanket inspection', 'Accessibility check', 'Correct signage review', 'Compliance documentation']
+  },
+  exit: {
+    icon: '🚨',
+    title: 'Emergency & Exit Light Testing',
+    standard: 'AS/NZS 2293',
+    body: 'We test emergency and exit lighting systems to ensure they operate correctly during power loss and evacuation situations.',
+    features: ['Function testing', 'Battery discharge testing', 'Compliance documentation']
+  },
+  door: {
+    icon: '🚪',
+    title: 'Fire & Smoke Door Testing',
+    standard: 'AS1905 / BCA',
+    body: 'We assess fire and smoke doors to ensure correct operation, sealing, clearance, hardware condition and compliance.',
+    features: ['Door operation inspection', 'Seal and gap checks', 'Hardware assessment', 'Compliance documentation']
+  },
+  hose: {
+    icon: '💧',
+    title: 'Fire Hose Reel Testing',
+    standard: 'AS1851:2012',
+    body: 'We inspect and test fire hose reels to confirm they are accessible, operational and ready for emergency use.',
+    features: ['Hose and nozzle inspection', 'Water flow testing', 'Accessibility review', 'Compliance documentation']
+  }
+};
+
+function openModal(serviceKey) {
+  const service = serviceDetails[serviceKey];
+  if (!service) return;
+
+  document.getElementById('modalIcon').textContent = service.icon;
+  document.getElementById('modalTitle').textContent = service.title;
+  document.getElementById('modalStandard').textContent = service.standard;
+  document.getElementById('modalBody').textContent = service.body;
+  document.getElementById('modalFeatures').innerHTML = service.features
+    .map(feature => `<div class="modal-feature">${feature}</div>`)
+    .join('');
+
+  document.getElementById('serviceModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('serviceModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (!links) return;
+  links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+}
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+document.getElementById('serviceModal').addEventListener('click', (event) => {
+  if (event.target.id === 'serviceModal') closeModal();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>
