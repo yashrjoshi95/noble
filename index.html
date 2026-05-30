@@ -563,18 +563,19 @@ section{padding:100px 52px;position:relative;}
   position:relative;z-index:1;
 }
 .wcard-corner{
-  position:absolute;bottom:0;right:0;
+  position:absolute;bottom:0;right:36px;left:0;top:0;
   background:linear-gradient(135deg,var(--blue-main),var(--blue-bright));
-  padding:28px;width:180px;height:180px;
-  display:flex;flex-direction:column;justify-content:center;
+  padding:36px;
+  display:flex;flex-direction:column;justify-content:flex-end;
   border-radius:20px;
   box-shadow:var(--shadow-lg);
 }
 .wcard-corner-num{
   font-family:'Barlow Condensed',sans-serif;
-  font-size:50px;font-weight:900;color:#fff;line-height:1;
+  font-size:68px;font-weight:900;color:#fff;line-height:1;
+  margin-bottom:4px;
 }
-.wcard-corner-text{font-size:12px;color:rgba(255,255,255,0.85);margin-top:4px;}
+.wcard-corner-text{font-size:13px;color:rgba(255,255,255,0.85);margin-top:4px;line-height:1.6;}
 
 .why-points{display:flex;flex-direction:column;gap:18px;margin-top:32px;}
 .why-point{
@@ -1149,22 +1150,18 @@ footer{
         </div>
       </div>
     </div>
-    <div class="why-visual-stack">
-      <div class="wcard-main">
-        <div class="wcard-main-num">AS/NZS</div>
-        <div class="wcard-main-label">3760:2022 </div>
-        <div class="wcard-main-sub">Portable electrical applieance test and tag completed to the Australian Standard.</div>
-      </div>
-      <div>
-    <div class="why-visual-stack">
-      <div class="wcard-main">
-        <div class="wcard-main-num">AS</div>
-        <div class="wcard-main-label">1851:2012 </div>
-        <div class="wcard-main-sub">Fire safety inscption to the Australian Standard.</div>
-      </div>
-    </div>
-    </div>
-    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;">
+  <div class="wcard-main" style="position:relative;height:auto;">
+    <div class="wcard-main-num">AS/NZS</div>
+    <div class="wcard-main-label">3760:2022</div>
+    <div class="wcard-main-sub">Portable electrical appliance test and tag completed to the Australian Standard.</div>
+  </div>
+  <div class="wcard-main" style="position:relative;height:auto;background:linear-gradient(135deg,var(--blue-main),var(--blue-bright));">
+    <div class="wcard-main-num" style="color:#fff;">Australian Standards</div>
+    <div class="wcard-main-label" style="color:rgba(255,255,255,0.75);">1851:2012</div>
+    <div class="wcard-main-sub" style="color:rgba(255,255,255,0.85);">Fire safety inspection to the Australian Standard.</div>
+  </div>
+</div>
 
   </div>
 </section>
